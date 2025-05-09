@@ -1,0 +1,92 @@
+<div class="bg-image"></div>
+<app-best-seller></app-best-seller>
+
+<div class="wrapper sticky">
+  <nav class="navbar-fixed-top">
+    <a href="/" class="logo" style="color:blueviolet;">
+      <mat-icon>library_books</mat-icon>
+      Librería Crisol
+    </a>
+    <ul>
+      <li>
+        <a (click)="handleLoginAction()"
+          style="color:blueviolet;">Iniciar sesión</a>
+        <a (click)="handleSignupAction()"
+          style="color:blueviolet;">Registrarse</a>
+          <a (click)="handleForgotPasswordAction()" style="color: blueviolet">Recuperar contraseña</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<footer class="footer" id="signup">
+  <div class="footer-content">
+    <h2>Librería Crisol</h2>
+    <p>&copy; {{ currentYear }} Todos los derechos reservados</p>
+
+    <div class="footer-links">
+      <a href="#">Términos</a>
+      <a href="#">Política de Privacidad</a>
+      <a href="#">Contacto</a>
+    </div>
+
+    <div class="social-icons">
+      <a href="#"><mat-icon>facebook</mat-icon></a>
+      <a href="#"><mat-icon>mail</mat-icon></a>
+      <a href="#"><mat-icon>public</mat-icon></a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+  background: #ffffff;
+  color: #7b1fa2;
+  text-align: center;
+  padding: 2em 1em;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: auto;
+}
+
+.footer-links {
+  margin: 1em 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.footer-links a {
+  color: #7b1fa2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  margin-top: 1em;
+}
+
+.social-icons a {
+  color: #7b1fa2;
+  margin: 0 10px;
+  font-size: 1.5em;
+}
+
+@media (max-width: 600px) {
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-icons {
+    font-size: 1.3em;
+  }
+}
+
+</style>

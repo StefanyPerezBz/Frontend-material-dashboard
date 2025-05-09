@@ -1,0 +1,58 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Tabla responsiva para pantallas pequeñas */
+@media(max-width: 800px) {
+  .responsive_table {
+    overflow-x: auto !important;
+  }
+
+  .mat-table {
+    min-width: 800px;
+  }
+}
+
+/* Ajuste de altura de las filas */
+.mat-row {
+  height: auto;
+}
+
+/* Centrado y espaciado de celdas */
+.mat-header-cell,
+.mat-cell {
+  text-align: center !important;
+  padding: 0px 8px 0px 15px !important;
+}
+
+/* Estilos para snackbars */
+.black-snackbar {
+  background: black !important;
+  color: white !important;
+}
+
+.green-snackbar {
+  background: #00ff7f !important;
+  color: black !important;
+}
+
+.mat-snack-bar-container {
+  margin-right: auto !important;
+  margin-left: auto !important;
+  width: 40vw !important;
+  min-width: 90% !important;
+  max-width: 100vw !important;
+  margin-top: 70px !important;
+  padding: 20px !important;
+}
+
+/* Espaciador sin Flex Layout */
+.spacer {
+  margin-left: auto;
+}
+

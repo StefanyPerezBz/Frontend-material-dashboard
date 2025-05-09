@@ -1,0 +1,126 @@
+<mat-toolbar color="light">
+    <mat-toolbar-row class="toolbar-row">
+        <span>Registrarse</span>
+        <span class="spacer"></span>
+        <button class="mat-dialog-close" mat-icon-button mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-toolbar-row>
+
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="signupForm">
+        <div fxFlex fxlayout="column">
+            <mat-form-field appearance="standard">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="name" required>
+                <mat-error
+                    *ngIf="signupForm.controls.name.touched && signupForm.controls.name.invalid">
+                    <span *ngIf="signupForm.controls.name.errors.required">El
+                        campo nombre es obligatorio</span>
+                    <span *ngIf="signupForm.controls.name.errors.pattern">El
+                        campo nombre es inválido</span>
+
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Numero de telefono</mat-label>
+                <input matInput formControlName="contactNumber" required>
+                <mat-error
+                    *ngIf="signupForm.controls.contactNumber.touched && signupForm.controls.contactNumber.invalid">
+                    <span
+                        *ngIf="signupForm.controls.contactNumber.errors.required">El
+                        campo telefono es obligatorio</span>
+                    <span
+                        *ngIf="signupForm.controls.contactNumber.errors.pattern">El
+                        campo telefono es inválido</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Correo electrónico</mat-label>
+                <input matInput formControlName="email" required>
+                <mat-error
+                    *ngIf="signupForm.controls.email.touched && signupForm.controls.email.invalid">
+                    <span
+                        *ngIf="signupForm.controls.email.errors.required">El
+                        campo correo es obligatorio</span>
+                    <span
+                        *ngIf="signupForm.controls.email.errors.pattern">El
+                        campo correo es inválido</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Contraseña</mat-label>
+                <input matInput formControlName="password" type="password"
+                    required [type]="password ? 'password' : 'text'">
+                <button type="button" mat-icon-button matSuffix
+                    (click)="password = !password"
+                    [attr.arial-label]="'Ocultar contraseña'"
+                    [attr.aria-pressed]="password">
+                    <mat-icon>{{ password ? 'visibility_off' : 'visibility'
+                        }}</mat-icon>
+                </button>
+                <mat-error
+                    *ngIf="signupForm.controls.password.touched && signupForm.controls.password.invalid">
+                    <span
+                        *ngIf="signupForm.controls.password.errors.required">El
+                        campo contraseña es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Confirmar Contraseña</mat-label>
+                <input matInput formControlName="confirmPassword" type="password"
+                    required [type]="confirmPassword ? 'password' : 'text'">
+                <button type="button" mat-icon-button matSuffix
+                    (click)="confirmPassword = !confirmPassword"
+                    [attr.arial-label]="'Ocultar contraseña'"
+                    [attr.aria-pressed]="password">
+                    <mat-icon>{{ confirmPassword ? 'visibility_off' : 'visibility'
+                        }}</mat-icon>
+                </button>
+                <mat-error
+                    *ngIf="signupForm.controls.confirmPassword.touched && signupForm.controls.confirmPassword.invalid">
+                    <span
+                        *ngIf="signupForm.controls.confirmPassword.errors.required">El
+                        campo contraseña es obligatorio</span>
+                </mat-error>
+                <mat-hint *ngIf="validateSubmit() && !(signupForm.controls.confirmPassword.invalid)">Las contraseñas deben coincidir. No están coincidiendo</mat-hint>
+            </mat-form-field>
+
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()" [disabled]="validateSubmit() || !(signupForm.valid && signupForm.dirty)">
+        <mat-icon>save</mat-icon> Registro
+    </button>
+    <button mat-raised-button color="warn" mat-dialog-close=>
+        <mat-icon>cancel</mat-icon> Cancelar
+    </button>
+</mat-dialog-actions>
+
+<style>
+.toolbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.spacer {
+  margin-left: auto;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+</style>
